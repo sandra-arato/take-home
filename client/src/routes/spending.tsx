@@ -6,8 +6,8 @@ export const Route = createFileRoute('/spending')({
 
 function Spending() {
   return (
-    <div className="p-2">
-      <h3>Spending</h3>
+    <div className="p-4">
+      <h1>Spending</h1>
     </div>
   )
 }

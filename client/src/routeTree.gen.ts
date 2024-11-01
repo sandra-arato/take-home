@@ -11,10 +11,17 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as TransactionsImport } from './routes/transactions'
 import { Route as SpendingImport } from './routes/spending'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const TransactionsRoute = TransactionsImport.update({
+  id: '/transactions',
+  path: '/transactions',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const SpendingRoute = SpendingImport.update({
   id: '/spending',
@@ -46,6 +53,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpendingImport
       parentRoute: typeof rootRoute
     }
+    '/transactions': {
+      id: '/transactions'
+      path: '/transactions'
+      fullPath: '/transactions'
+      preLoaderRoute: typeof TransactionsImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -54,36 +68,41 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/spending': typeof SpendingRoute
+  '/transactions': typeof TransactionsRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/spending': typeof SpendingRoute
+  '/transactions': typeof TransactionsRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/spending': typeof SpendingRoute
+  '/transactions': typeof TransactionsRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/spending'
+  fullPaths: '/' | '/spending' | '/transactions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/spending'
-  id: '__root__' | '/' | '/spending'
+  to: '/' | '/spending' | '/transactions'
+  id: '__root__' | '/' | '/spending' | '/transactions'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SpendingRoute: typeof SpendingRoute
+  TransactionsRoute: typeof TransactionsRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SpendingRoute: SpendingRoute,
+  TransactionsRoute: TransactionsRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,7 +116,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/spending"
+        "/spending",
+        "/transactions"
       ]
     },
     "/": {
@@ -105,6 +125,9 @@ export const routeTree = rootRoute
     },
     "/spending": {
       "filePath": "spending.tsx"
+    },
+    "/transactions": {
+      "filePath": "transactions.tsx"
     }
   }
 }

@@ -5,18 +5,19 @@ import {
   NavigationMenuList,
 } from '@/components/ui/navigation-menu'
 
-// import { TanStackRouterDevtools } from '@tanstack/router-devtools'
-
 export const Route = createRootRoute({
   component: () => (
     <>
       <div className="p-2 flex gap-2">
         <NavigationMenu>
           <NavigationMenuList>
-            <NavigationMenuItem>
+            <NavigationMenuItem className="font-light">
               <Link to="/">Home</Link>{' '}
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem className="font-light">
+              <Link to="/transactions">Transactions</Link>{' '}
+            </NavigationMenuItem>
+            <NavigationMenuItem className="font-light">
               <Link to="/spending">Spending</Link>{' '}
             </NavigationMenuItem>
           </NavigationMenuList>

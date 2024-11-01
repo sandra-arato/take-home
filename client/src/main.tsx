@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 
 //theme provider
-import { ThemeProvider } from '@/components/shared/ThemeProvider'
+import { ThemeProvider } from './components/shared/ThemeProvider'
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
