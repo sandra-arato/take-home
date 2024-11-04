@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { NetWorth } from '@/components/home/netWorth'
 import { Transactions } from '@/components/shared/transactions'
 import { Main } from '@/components/shared/main'
@@ -18,10 +18,22 @@ function Index() {
           <h2 className="pt-8 pb-2 text-xl">Accounts</h2>
           <div className="w-full flex">
             <div className="w-48 h-24 mr-3">
-              <Account balance={12.34} accountName="Everyday" bankName="ING" />
+              <Link to="/transactions">
+                <Account
+                  balance={12.34}
+                  accountName="Everyday"
+                  bankName="ING"
+                />
+              </Link>
             </div>
             <div className="w-48  mr-3 rounded">
-              <Account balance={322.14} accountName="Savings" bankName="ING" />
+              <Link to="/transactions">
+                <Account
+                  balance={322.14}
+                  accountName="Savings"
+                  bankName="ING"
+                />
+              </Link>
             </div>
             <div className="w-48 mr-3 flex flex-col">
               <button className="flex h-full w-full px-6 border rounded border-indigo-200 hover:bg-indigo-100 justify-around">
