@@ -1,6 +1,6 @@
 'use client'
 
-import { TrendingUp } from 'lucide-react'
+import { TrendingDown } from 'lucide-react'
 import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts'
 
 import {
@@ -11,13 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 
 import {
   ChartConfig,
@@ -26,20 +19,18 @@ import {
   ChartTooltipContent,
 } from '@/components/ui/chart'
 
-export const description = 'A simple area chart'
-
 const chartData = [
-  { month: 'January', desktop: 186 },
-  { month: 'February', desktop: 305 },
-  { month: 'March', desktop: 237 },
-  { month: 'April', desktop: 73 },
-  { month: 'May', desktop: 209 },
-  { month: 'June', desktop: 214 },
+  { month: 'June', desktop: 186 },
+  { month: 'July', desktop: 305 },
+  { month: 'August', desktop: 237 },
+  { month: 'September', desktop: 73 },
+  { month: 'October', desktop: 209 },
+  { month: 'November', desktop: 214 },
 ]
 
 const chartConfig = {
   desktop: {
-    label: 'Desktop',
+    label: 'Balance',
     color: 'hsl(var(--chart-4))',
   },
 } satisfies ChartConfig
@@ -48,21 +39,11 @@ export function NetWorth() {
   return (
     <Card>
       <CardHeader className="flex flex-row justify-between mb-4">
-        <div className="">
-          <CardTitle>Your progress</CardTitle>
-          <CardDescription>Kicking goals in the last 6 months</CardDescription>
-        </div>
-        <div className="">
-          <Select>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="last 6 months" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="light">last 2 weeks</SelectItem>
-              <SelectItem value="dark">last month</SelectItem>
-              <SelectItem value="system">last 6 months</SelectItem>
-            </SelectContent>
-          </Select>
+        <div className="w-2/4">
+          <CardTitle className="text-5xl">$334.48</CardTitle>
+          <CardDescription className="text-xs pt-2">
+            Your current balance across all accounts
+          </CardDescription>
         </div>
       </CardHeader>
       <CardContent>
@@ -101,10 +82,11 @@ export function NetWorth() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 font-medium leading-none">
-              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+              Trending down by 5.2% this month{' '}
+              <TrendingDown className="h-4 w-4" />
             </div>
             <div className="flex items-center gap-2 leading-none text-muted-foreground">
-              January - June 2024
+              Jun - Nov 2024
             </div>
           </div>
         </div>

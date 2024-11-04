@@ -1,4 +1,4 @@
-import { Card, CardDescription, CardHeader, CardTitle } from '../ui/card'
+import { Card, CardTitle } from '../ui/card'
 
 type AccountProps = {
   balance: number
@@ -9,13 +9,11 @@ type AccountProps = {
 export function Account({ balance, accountName, bankName }: AccountProps) {
   return (
     <Card className="rounded border-indigo-400">
-      <CardHeader>
-        <CardTitle>${balance}</CardTitle>
-        <CardDescription className="text-indigo-500">
-          {accountName}
-          <p className="text-xs text-muted-foreground ">{bankName}</p>
-        </CardDescription>
-      </CardHeader>
+      <div className="space-y-0 py-6 px-4">
+        <CardTitle className="mb-2">${balance}</CardTitle>
+        <p className="text-indigo-500 space-y-0">{accountName}</p>
+        <p className="mt-0 space-y-0">{bankName}</p>
+      </div>
     </Card>
   )
 }

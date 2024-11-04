@@ -29,3 +29,34 @@ export interface Transaction {
   payment_channel: string;
   pending: boolean;
 }
+
+export enum TrackerType {
+  SAVING = 'saving',
+  SPENDING = 'spending',
+}
+
+export enum Cadence {
+  WEEKLY = 'weekly',
+  MONTHLY = 'monthly',
+}
+
+// export enum SpendingCategory {
+//   TRANSPORT = 'transport',
+//   FOOD = 'food',
+//   SHOPPING = 'shopping',
+//   EDUCATION = 'education',
+//   RENT = 'rent',
+//   BILLS = 'bills',
+// }
+
+export type SpendingCategory = string;
+
+export interface Tracker {
+  id: string;
+  label: string;
+  balance: number;
+  goal: number;
+  type: TrackerType;
+  cadence: Cadence;
+  category?: SpendingCategory;
+}

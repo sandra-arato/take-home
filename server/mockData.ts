@@ -1,5 +1,5 @@
 import { format, subDays } from "date-fns";
-import { Account, Category, Transaction } from "./types";
+import { Account, Cadence, Category, Tracker, TrackerType, Transaction } from "./types";
 
 const today = new Date(Date.now());
 const dateFormatted = (sub: number) =>
@@ -148,3 +148,24 @@ export const categories: Category[] = [
     name: "Groceries",
   },
 ];
+
+export const trackers: Tracker[] = [
+  {
+    id: "1",
+    label: "Booze",
+    balance: 400,
+    goal: 300,
+    type: TrackerType.SPENDING,
+    cadence: Cadence.WEEKLY,
+  },
+  {
+    id: "3",
+    label: "Groceries",
+    balance: 300,
+    goal: 500,
+    type: TrackerType.SPENDING,
+    cadence: Cadence.WEEKLY,
+  }
+];
+
+

@@ -3,6 +3,7 @@ import { NetWorth } from '@/components/home/netWorth'
 import { Transactions } from '@/components/shared/transactions'
 import { Main } from '@/components/shared/main'
 import { Account } from '@/components/shared/account'
+import { Trackers } from '@/components/home/trackers'
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -12,7 +13,7 @@ function Index() {
   return (
     <Main>
       <div className="flex flex-row space-x-6">
-        <div className="w-3/4">
+        <div className="w-3/5">
           <NetWorth />
           <h2 className="pt-8 pb-2 text-xl">Accounts</h2>
           <div className="w-full flex">
@@ -36,7 +37,10 @@ function Index() {
             <Transactions preview />
           </div>
         </div>
-        <div className="w-1/4 bg-slate-200"></div>
+        <div className="w-2/5">
+          <h2 className="pb-2 text-xl">Trackers</h2>
+          <Trackers />
+        </div>
       </div>
     </Main>
   )
